@@ -48,18 +48,4 @@ private:
 
 };
 
-//Derived class from base class Prisoner
-class Jailed : public Prisoner
-{
-	Jailed();
-	~Jailed();
-};
-
-//Derived class from base class Prisoner
-class Parolee : public Prisoner 
-{
-	Parolee();
-	~Parolee();
-};
-
 #endif //PRISONER_H
