@@ -4,6 +4,8 @@
 #include <vector>
 
 #include "Prisoner.h"
+#include "Jailed.h"
+#include "Parolee.h"
 
 int main()
 {
@@ -59,18 +61,22 @@ int main()
 	file.close();
 
 	Prisoner prisoner[row];
+	Jailed * jail[row];
 	for (int i = 0; i < row; i++)
 	{
 		prisoner[i].setId(vid[i]);
 		prisoner[i].setSentence(vsentence[i]);
 		prisoner[i].setTimeServed(vserved[i]);
-		prisoner[i].setName(vlast[i], vfirst[i]);	
+		prisoner[i].setName(vlast[i], vfirst[i]);
+		jail[i] = new Jailed(vsentence[i], vserved[i], 0.10);
 	}
 
-	for (int i = 0; i < row; ++i)
+	for(int i = 0; i < row; i++)
 	{
 		cout << prisoner[i];
+		jail[i]->display();
 	}
+
 
 	return 0;
 }

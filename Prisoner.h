@@ -32,13 +32,14 @@ public:
 	void credit();
 	void debit();
 	int getTimeRemain();
-	int reSentence();
+	void reSentence(int);
+	virtual void display();
 
 	//Stream extraction and insertion operator overloading
 	friend ostream& operator << (ostream &out, const Prisoner &p);
 	friend istream& operator >> (istream &in, Prisoner &p);
 
-private:
+protected:
 	string lastName;
 	string firstName;
 	string id;
