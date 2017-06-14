@@ -18,6 +18,7 @@ Prisoner::Prisoner(string i, int s, int ts, string ln, string fn)
 	timeServed = ts;
 	lastName = ln;
 	firstName = fn;
+	timeRemain = sentence-timeServed;
 }
 
 Prisoner::~Prisoner()
@@ -40,7 +41,7 @@ void Prisoner::setName(string ln, string fn)
 	lastName = ln;
 	firstName = fn;
 }
-string Prisoner::getName() { return lastName + " " + firstName; }
+string Prisoner::getName() { return lastName + ", " + firstName; }
 
 void Prisoner::credit()
 {

@@ -31,5 +31,6 @@ double Jailed::calculateGoodTime()
 void Jailed::display()
 {
 	Prisoner::display();
-	cout << "Good time: " << calculateGoodTime() << endl << endl;
+	cout << "Good time: " << calculateGoodTime() << endl;
+	cout << "Goot time applied to time served: " << calculateGoodTime() + timeServed << endl;
 }

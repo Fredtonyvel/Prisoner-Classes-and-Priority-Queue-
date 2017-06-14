@@ -2,6 +2,10 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <queue>
+#include <map>
+#include <iomanip>
+#include <cstdlib>
 
 #include "Prisoner.h"
 #include "Jailed.h"
@@ -62,7 +66,7 @@ int main()
 
 	Prisoner prisoner[row];
 	Jailed * jail[row];
-	Parolee parole[row];
+	Parolee * parole[row];
 
 	for (int i = 0; i < row; i++)
 	{
@@ -71,14 +75,29 @@ int main()
 		prisoner[i].setTimeServed(vserved[i]);
 		prisoner[i].setName(vlast[i], vfirst[i]);
 		jail[i] = new Jailed(vsentence[i], vserved[i], 0.10);
-		parole[i].setParole(vsentence[i]);
+		parole[i] = new Parolee(vsentence[i], vserved[i]);
+		parole[i]->setParole(vsentence[i]);
 	}
 
 	for(int i = 0; i < row; i++)
 	{
 		cout << prisoner[i];
 		jail[i]->display();
-		parole[i].display();
+		parole[i]->display();
+	}
+
+	multimap<int, string> release;
+	for (int i = 0; i < row; i++)
+	{
+		release.insert({prisoner[i].getTimeRemain(), prisoner[i].getName()});
+	}
+
+	cout << "The first six Prisoners to be released:" << endl;
+	int i = 1;
+	for (auto &x : release)
+	{
+		cout << i << " --> " << x.first << " : " << x.second << endl;
+		i++;
 	}
 
 	return 0;

@@ -11,7 +11,8 @@ using namespace std;
 class Parolee : public Prisoner 
 {
 public:
-	//Parolee();
+	Parolee();
+	Parolee(int,int);
 	//~Parolee();
 
 	void setParole(int);
