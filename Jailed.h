@@ -15,6 +15,8 @@ public:
 	Jailed(int, int, double);
 	~Jailed();
 
+	void setGoodTimeRate(double);
+	double getGoodTimeRate();
 	double calculateGoodTime();
 	void display();
 

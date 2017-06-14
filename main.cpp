@@ -62,6 +62,8 @@ int main()
 
 	Prisoner prisoner[row];
 	Jailed * jail[row];
+	Parolee parole[row];
+
 	for (int i = 0; i < row; i++)
 	{
 		prisoner[i].setId(vid[i]);
@@ -69,14 +71,15 @@ int main()
 		prisoner[i].setTimeServed(vserved[i]);
 		prisoner[i].setName(vlast[i], vfirst[i]);
 		jail[i] = new Jailed(vsentence[i], vserved[i], 0.10);
+		parole[i].setParole(vsentence[i]);
 	}
 
 	for(int i = 0; i < row; i++)
 	{
 		cout << prisoner[i];
 		jail[i]->display();
+		parole[i].display();
 	}
-
 
 	return 0;
 }

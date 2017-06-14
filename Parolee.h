@@ -10,8 +10,16 @@ using namespace std;
 //Derived class from base class Prisoner
 class Parolee : public Prisoner 
 {
-	Parolee();
-	~Parolee();
+public:
+	//Parolee();
+	//~Parolee();
+
+	void setParole(int);
+	int getParole();
+	void display();
+
+private:
+	int parole;
 };
 
 #endif //PAROLEE_H
